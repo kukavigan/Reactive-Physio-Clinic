@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { assetUrl } from "@/lib/asset";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
               <img
-                src="/reactive-logo.png"
+                src={assetUrl("/reactive-logo.png")}
                 alt="Reactive Physio"
                 className="h-14 w-auto"
               />
