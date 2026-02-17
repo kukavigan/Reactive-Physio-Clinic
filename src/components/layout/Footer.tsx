@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
               <img
-                src={assetUrl("/reactive-logo.png")}
+                src={assetUrl("reactive-logo.png")}
                 alt="Reactive Physio"
                 className="h-14 w-auto"
               />
