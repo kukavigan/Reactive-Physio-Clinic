@@ -27,7 +27,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = `Hello, I'd like to book an appointment.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service}\nPreferred Date: ${formData.date}\nMessage: ${formData.message}`;
-    const url = `https://wa.me/1234567890?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/38345274352?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
     toast({
       title: "Redirecting to WhatsApp",
