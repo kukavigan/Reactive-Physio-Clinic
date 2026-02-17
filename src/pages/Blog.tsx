@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { articles, categories } from "@/data/blog";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { assetUrl } from "@/lib/asset";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -57,7 +58,7 @@ const Blog = () => {
                 <Card className="h-full border-0 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="aspect-[16/9] bg-secondary rounded-t-lg overflow-hidden">
                     <img
-                      src={article.image}
+                      src={assetUrl(article.image)}
                       alt={article.title}
                       className="w-full h-full object-cover"
                       loading="lazy"

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { assetUrl } from "@/lib/asset";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -20,7 +21,7 @@ const Header = () => {
       <div className="container-narrow flex items-center justify-between h-16 px-4 md:px-8 lg:px-16">
         <Link to="/" className="flex items-center gap-2">
           <img
-            src="/reactive-logo.png"
+            src={assetUrl("/reactive-logo.png")}
             alt="Reactive Physio"
             className="h-14 w-auto"
           />

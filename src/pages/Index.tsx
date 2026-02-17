@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
 import { Phone, Clock, MapPin, Star, ArrowRight, Shield, Users, Sparkles, HeartHandshake } from "lucide-react";
+import { assetUrl } from "@/lib/asset";
 
 const benefits = [
   { icon: Users, title: "Experienced Team", desc: "Certified physiotherapists with 7+ years of clinical experience." },
@@ -53,7 +54,7 @@ const Index = () => {
       {/* Right Image */}
       <div className="w-full max-w-sm md:max-w-md rounded-2xl shadow-xl object-cover">
         <img
-          src="/hero/shkurta-fizio.jpg"
+          src={assetUrl("/hero/shkurta-fizio.jpg")}
           alt="Physiotherapy treatment at Reactive Physio"
           className="w-full max-w-md md:max-w-lg rounded-2xl shadow-xl object-cover"
           loading="lazy"

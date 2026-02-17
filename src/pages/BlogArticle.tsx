@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { articles } from "@/data/blog";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { assetUrl } from "@/lib/asset";
 
 const BlogArticle = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -41,7 +42,7 @@ const BlogArticle = () => {
 
                 <div className="aspect-[16/9] w-full overflow-hidden rounded-2xl bg-secondary shadow-sm mb-8">
                   <img
-                    src={article.image}
+                    src={assetUrl(article.image)}
                     alt={article.title}
                     className="w-full h-full object-cover"
                     loading="lazy"

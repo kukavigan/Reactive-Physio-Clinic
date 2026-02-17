@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { team } from "@/data/team";
 import { Award, GraduationCap, Heart, Target } from "lucide-react";
+import { assetUrl } from "@/lib/asset";
 
 const certifications = [
   "Chartered Society of Physiotherapy (CSP)",
@@ -81,7 +82,7 @@ const About = () => {
               <Card key={i} className="border-0 shadow-sm overflow-hidden fade-up">
                 <div className="aspect-[3/4] bg-muted overflow-hidden">
                   <img
-                    src={member.image}
+                    src={assetUrl(member.image)}
                     alt={member.name}
                     className="w-full h-full object-cover"
                   />
