@@ -19,7 +19,10 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
       <div className="container-narrow flex items-center justify-between h-16 px-4 md:px-8 lg:px-16">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" 
+              className="flex items-center gap-2"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
           <img
             src={assetUrl("reactive-logo.png")}
             alt="Reactive Physio"

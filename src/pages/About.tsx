@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { team } from "@/data/team";
 import { Award, GraduationCap, Heart, Target } from "lucide-react";
 import { assetUrl } from "@/lib/asset";
+
 
 const certifications = [
   "Chartered Society of Physiotherapy (CSP)",
@@ -15,6 +16,8 @@ const About = () => {
   useEffect(() => {
     document.title = "About Us | Reactive Physio Clinic";
   }, []);
+
+  const [openBios, setOpenBios] = useState<Record<number, boolean>>({});
 
   return (
     <>
@@ -40,13 +43,16 @@ const About = () => {
             <div className="fade-up">
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-6">Our Story</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Founded by Dr. Qendresa Ajvazi, Reactive Physio Rehab Clinic was born from a simple belief: physiotherapy should be personalized, evidence-based, and focused on long-term outcomes — not quick fixes.
+                Reactive was founded by Qendresa Ajvazi and Shkurta Ejupi after years of clinical experience in hospital and rehabilitation settings. Through daily work with complex cases and a commitment to continuous professional development, they recognized the need for a modern physiotherapy clinic built on precision, evidence-based practice, and measurable results.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Since opening our doors, we've helped hundred of patients overcome pain, recover from injuries, and return to active, fulfilling lives. Our approach combines clinical expertise with genuine compassion, creating a healing environment where every patient feels heard and supported.
+                Qendresa Ajvazi specializes in orthopedic rehabilitation, focusing on musculoskeletal injuries, post-operative recovery, and performance-based rehabilitation. Her work centers on restoring strength, movement quality.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Shkurta Ejupi specializes in neurological rehabilitation, working with patients affected by neurological conditions and movement impairments, with an emphasis on functional independence and structured recovery.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Today, our specialist physiotherapists continues to push the boundaries of rehabilitation, integrating the latest research and techniques to deliver the best possible outcomes for our patients.
+                After years of professional growth, they decided to establish their own clinic to fully implement their standards of care and create a focused, patient-centered environment. Since opening in 2025, Reactive has experienced continuous patient trust and growth, reflecting the clinic’s commitment to professionalism, individualized treatment, and long-term outcomes.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4 fade-up-delay-1">
@@ -84,14 +90,43 @@ const About = () => {
                   <img
                     src={assetUrl(member.image)}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
                 <CardContent className="p-5 text-center">
-                  <h3 className="font-serif font-semibold text-foreground">{member.name}</h3>
+                  <h3 className="font-serif text-lg font-semibold text-foreground">{member.name}</h3>
                   <p className="text-primary text-xs font-medium mt-1">{member.role}</p>
-                  <p className="text-muted-foreground text-xs mt-1">{member.specialization}</p>
+                  <p className="inline-block bg-primary/10 text-primary text-[11px] px-3 py-1 rounded-full mt-2">
+                    {member.specialization}
+                  </p>
                   <p className="text-muted-foreground text-xs mt-1">{member.experience} experience</p>
+
+                  {/* Bio */}
+                    <div className="mt-4 border-t pt-3 text-left">
+                      <p className="text-[11px] uppercase tracking-wide text-primary font-semibold mb-1">
+                        Bio
+                      </p>
+                      <p
+                        className={`text-sm text-muted-foreground leading-relaxed whitespace-pre-line ${
+                          openBios[i] ? "" : "line-clamp-4"
+                        }`}
+                      >
+                        {member.bio}
+                      </p>
+
+                      <button
+                        type="button"
+                        className="mt-2 text-xs font-medium text-primary hover:underline"
+                        onClick={() =>
+                          setOpenBios((prev) => ({
+                            ...prev,
+                            [i]: !prev[i],
+                          }))
+                        }
+                      >
+                        {openBios[i] ? "Read less" : "Read more"}
+                      </button>
+                    </div>
                 </CardContent>
               </Card>
             ))}
